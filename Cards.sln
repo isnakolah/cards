@@ -13,7 +13,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{8E957D5E-8462-49AC-96E4-AC49E07520C8}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		Markdown.md = Markdown.md
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
