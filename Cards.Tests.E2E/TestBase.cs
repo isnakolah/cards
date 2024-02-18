@@ -18,6 +18,8 @@ public abstract class TestBase : IDisposable
 
     protected TestBase()
     {
+        var dbName = $"InMemoryDbForTesting-{Guid.NewGuid()}";
+
         _factory = new WebApplicationFactory<Program>()
             .WithWebHostBuilder(builder =>
             {
@@ -33,7 +35,7 @@ public abstract class TestBase : IDisposable
 
                     services.AddDbContext<ApplicationDbContext>(options =>
                     {
-                        options.UseInMemoryDatabase("InMemoryDbForTesting");
+                        options.UseInMemoryDatabase(dbName);
                     });
 
                 });
@@ -123,6 +125,7 @@ public abstract class TestBase : IDisposable
     {
         _client.Dispose();
         _factory.Dispose();
+        GC.SuppressFinalize(this);
     }
 
 }

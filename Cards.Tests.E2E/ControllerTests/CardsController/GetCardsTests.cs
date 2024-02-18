@@ -7,8 +7,7 @@ namespace Cards.Tests.E2E.Controllers;
 
 public class GetCardsTests : TestBase
 {
-    
-    [Fact(Skip = "Need to reset state, which is buggy atm. Run in isolation for now.")]
+    [Fact]
     public async Task GetCards_ShouldReturnError_WhenNoCardsArePresent()
     {
         // Arrange
