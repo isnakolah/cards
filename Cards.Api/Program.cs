@@ -1,4 +1,5 @@
 using System.Text;
+using Cards.Api;
 using Cards.Api.Services;
 using Cards.Application;
 using Cards.Application.Common.Services;
@@ -12,7 +13,7 @@ using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => options.Filters.Add<ApiExceptionFilter>());
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -66,3 +67,5 @@ app.UseAuthorization();
 app.AddDatabaseMigrations();
 
 app.Run();
+
+public partial class Program;

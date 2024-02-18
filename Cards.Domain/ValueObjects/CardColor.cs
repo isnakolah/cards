@@ -17,9 +17,11 @@ public sealed partial record CardColor
         value = color;
     }
 
-    public static implicit operator CardColor(string color)
+    public static implicit operator CardColor?(string? color)
     {
-        return new CardColor(color);
+        return string.IsNullOrWhiteSpace(color)
+            ? DefaultColor
+            : new CardColor(color.Trim());
     }
 
     public static implicit operator string(CardColor cardColor)
@@ -35,5 +37,5 @@ public sealed partial record CardColor
     [GeneratedRegex(@"^#[A-Za-z0-9]{6}$")]
     private static partial Regex ColorPatternRegex();
 
-    public static CardColor? DefaultColor => null;
+    private static CardColor? DefaultColor => null;
 }

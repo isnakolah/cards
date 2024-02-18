@@ -44,7 +44,7 @@ public sealed class UpdateCardCommandHandler(
             card.Update(
                 name: request.Name?.Trim(),
                 description: request.Description?.Trim(),
-                color: request.Color ?? CardColor.DefaultColor!,
+                color: request.Color?.Trim(),
                 status: request.Status);
         }
         catch (Exception e)

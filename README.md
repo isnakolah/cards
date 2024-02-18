@@ -46,9 +46,9 @@ The Cards API allows users to create and manage tasks in the form of cards. This
 
 1.  **Seed Users**: Send a `POST` request to `/auth/seed-users` with the user's email, password, and role.
 2.  **Login**: Send a `POST` request to `/auth/login` with the user's email and password to receive a JWT token. Below is the default users:
->**Admin**: Email: ```admin@cards.com``` Password: ```StrongMemberOnePassword123```
+>**Admin**: Email: ```admin@cards.com``` Password: ```StrongAdminPassword123```
 
->**Member 1**: Email: ```john.doe@cards.com``` Password: ```StrongAdminPassword123```
+>**Member 1**: Email: ```john.doe@cards.com``` Password: ```StrongMemberOnePassword123```
 
 > **Member 2**: Email: ```jane.doe@cards.com``` Password: ```StrongMemberTwoPassword123```
 
@@ -83,4 +83,4 @@ JWT tokens are used to manage sessions and authorization. Ensure the token is in
 
 Limitations
 -------------
-- No automated test coverage
+- Test coverage is not comprehensive.

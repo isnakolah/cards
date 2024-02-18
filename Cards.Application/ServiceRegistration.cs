@@ -1,4 +1,5 @@
 using System.Reflection;
+using Cards.Application.Common.Behaviours;
 using FluentValidation;
 using MediatR.NotificationPublishers;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +15,7 @@ public static class ServiceRegistration
         services.AddMediatR(cfg =>
         {
             cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly());
+            cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
             cfg.NotificationPublisher = new TaskWhenAllPublisher();
         });
 

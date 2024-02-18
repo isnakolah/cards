@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Cards.Application.Common.Services;
 using Cards.Application.Users.Services;
 using Cards.Infrastructure.Options;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+[assembly: InternalsVisibleTo("CardsTestE2E")]
 namespace Cards.Infrastructure;
 
 public static class ServiceRegistration

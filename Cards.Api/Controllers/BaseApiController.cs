@@ -14,15 +14,15 @@ public abstract class BaseApiController : ControllerBase
     
     protected ActionResult<ApiResponse<T>> CustomResponse<T>(ApiResponse<T> result)
     {
-        return result.Errors.Length != 0
-            ? BadRequest(result)
-            : Ok(result);
+        return result.IsSuccess
+            ? Ok(result)
+            : BadRequest(result);
     }
     
     protected ActionResult<PaginatedApiResponse<T>> CustomResponse<T>(PaginatedApiResponse<T> result)
     {
-        return result.Errors.Length != 0
-            ? BadRequest(result)
-            : Ok(result);
+        return result.IsSuccess
+            ? Ok(result)
+            : BadRequest(result);
     }
 }

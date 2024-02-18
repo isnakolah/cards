@@ -18,11 +18,14 @@ public sealed record Card : BaseEntity
 
     internal static Card Create(ApplicationUser user, string name, string? description, CardColor? color)
     {
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException("Card name cannot be empty or whitespace.", nameof(name));
+
         return new Card
         {
             User = user,
-            Name = name,
-            Description = description,
+            Name = name.Trim(),
+            Description = string.IsNullOrWhiteSpace(description) ? null : description.Trim(),
             Color = color,
             Status = CardStatus.ToDo
         };

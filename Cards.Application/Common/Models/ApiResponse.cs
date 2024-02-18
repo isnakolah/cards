@@ -2,11 +2,11 @@ namespace Cards.Application.Common.Models;
 
 public record ApiResponse<T>
 {
-    public T Data { get; private protected init; } = default!;
+    public T Data { get; init; } = default!;
     
-    public bool IsSuccess { get; private protected init; }
-    public string Message { get; private protected init; } = string.Empty;
-    public string[] Errors { get; private protected init; } = Array.Empty<string>();
+    public bool IsSuccess { get; init; }
+    public string Message { get; init; } = string.Empty;
+    public string[] Errors { get; init; } = Array.Empty<string>();
     
     public static ApiResponse<T> Success(T Data)
     {
@@ -49,10 +49,10 @@ public record ApiResponse<T>
 
 public record PaginatedApiResponse<T> : ApiResponse<IEnumerable<T>>
 {
-    public int Page { get; private init; }
-    public int PageSize { get; private init; }
-    public int TotalPages { get; private init; }
-    public int TotalCount { get; private init; }
+    public int Page { get; init; }
+    public int PageSize { get; init; }
+    public int TotalPages { get; init; }
+    public int TotalCount { get; init; }
     public bool HasPrevious => Page > 1;
     public bool HasNext => Page < TotalPages;
 
